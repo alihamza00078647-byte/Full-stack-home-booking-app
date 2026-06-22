@@ -39,8 +39,6 @@ const randomString = (len) => {
 }
 
 
-
-
 const storage = multer.diskStorage({
     
     destination : (req, file, cb) => {
@@ -137,7 +135,6 @@ app.use(hostRouter);
 app.use((req, res, next) => {
     res.render('404', {pageTitle : 'page Not Found', isLoggedIn: req.isLoggedIn});
 });
-
 
 
 
