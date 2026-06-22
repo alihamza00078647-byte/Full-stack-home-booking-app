@@ -1,0 +1,53 @@
+<div class="group relative cursor-pointer">
+  <a
+    href="/favourites/<%= home._id %>"
+    aria-label="Add to favourites"
+    class="absolute top-3 right-3 z-10 hover:scale-110 transition-transform duration-200"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      class="<%= isLoggedIn ? favourites.toString().includes(home._id.toString()) ? 'active' : '' : '' %> w-7 h-7 transition-colors duration-200 text-black/50 stroke-white stroke-[2px] hover:text-red-500 hover:stroke-red-500 drop-shadow-md"
+    >
+      <path
+        d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+      />
+    </svg>
+  </a>
+
+  <a href="/homesdetails/<%= home._id %>" class="block">
+    <div class="aspect-square w-full overflow-hidden rounded-xl bg-gray-200">
+      <img
+        src="<%= home.mainImage %>"
+        alt="<%= home.houseName %>"
+        class="h-full w-full object-cover transition duration-300 group-hover:scale-105"
+      />
+    </div>
+
+    <div class="mt-3">
+      <div class="flex justify-between items-start">
+        <h2 class="font-semibold text-base leading-tight">
+          <%= home.location %>
+        </h2>
+        <div class="flex items-center space-x-1">
+          <span class="text-xs">★</span>
+          <span class="text-sm font-light"><%= home.rating %></span>
+        </div>
+      </div>
+
+      <p class="text-gray-500 text-sm leading-tight mt-1">
+        <%= home.houseName %>
+      </p>
+
+      <p class="text-gray-500 text-sm leading-tight">
+        <%= home.description.substring(0, 30) %>...
+      </p>
+
+      <p class="mt-2 text-sm">
+        <span class="font-semibold">$<%= home.price %></span>
+        <span class="font-light">night</span>
+      </p>
+    </div>
+  </a>
+</div>

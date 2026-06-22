@@ -1,0 +1,20 @@
+<%- include('../partials/head') %>
+
+<link rel="stylesheet" href="/css/output.css">
+
+</head>
+<body>
+    <%- include('../partials/navigation') %>
+        <h1 class="text-4xl text-red-400 flex justify-center mt-3">Bookings page</h1>
+
+    <% if (homes.length <= 0) { %>
+        <p class="text-4xl text-orange-600 mt-20 mb-40 text-center">No bookings found.</p>
+    <% } else { %>
+        <!-- Display booked homes here -->
+
+    <% } %>
+
+
+    <%- include('../partials/footer') %>
+</body>
+</html>

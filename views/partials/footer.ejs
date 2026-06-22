@@ -1,0 +1,145 @@
+
+
+  <style>
+    body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    .footer-link {
+      position: relative;
+      display: inline-block;
+      color: #4b5563;
+      transition: color 0.2s;
+    }
+    .footer-link::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: #111827;
+      transition: width 0.25s ease;
+    }
+    .footer-link:hover { color: #111827; }
+    .footer-link:hover::after { width: 100%; }
+
+    .social-btn:hover svg { fill: white; }
+  </style>
+</head>
+<body class="bg-white">
+
+<footer class="bg-gray-50 border-t border-gray-200 pt-14 pb-8">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <!-- ── Top Grid ─────────────────────────────────────────── -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-10 pb-12 border-b border-gray-200">
+
+      <!-- Support -->
+      <div>
+        <h3 class="text-xs font-bold uppercase tracking-widest text-gray-900 mb-5 pt-10">Support</h3>
+        <ul class="space-y-3.5">
+          <li><a href="#" class="footer-link text-sm">Help Center</a></li>
+          <li><a href="#" class="footer-link text-sm">AirCover</a></li>
+          <li><a href="#" class="footer-link text-sm">Anti-discrimination</a></li>
+          <li><a href="#" class="footer-link text-sm">Disability support</a></li>
+          <li><a href="#" class="footer-link text-sm">Cancellation options</a></li>
+          <li><a href="#" class="footer-link text-sm">Report concern</a></li>
+        </ul>
+      </div>
+
+      <!-- Hosting -->
+      <div>
+        <h3 class="text-xs font-bold uppercase tracking-widest text-gray-900 mb-5">Hosting</h3>
+        <ul class="space-y-3.5">
+          <li><a href="#" class="footer-link text-sm">Airbnb your home</a></li>
+          <li><a href="#" class="footer-link text-sm">AirCover for Hosts</a></li>
+          <li><a href="#" class="footer-link text-sm">Hosting resources</a></li>
+          <li><a href="#" class="footer-link text-sm">Community forum</a></li>
+          <li><a href="#" class="footer-link text-sm">Hosting responsibly</a></li>
+        </ul>
+      </div>
+
+      <!-- Airbnb -->
+      <div>
+        <h3 class="text-xs font-bold uppercase tracking-widest text-gray-900 mb-5">airbnb</h3>
+        <ul class="space-y-3.5">
+          <li><a href="#" class="footer-link text-sm">Newsroom</a></li>
+          <li><a href="#" class="footer-link text-sm">New features</a></li>
+          <li><a href="#" class="footer-link text-sm">Careers</a></li>
+          <li><a href="#" class="footer-link text-sm">Investors</a></li>
+          <li><a href="#" class="footer-link text-sm">Gift cards</a></li>
+        </ul>
+      </div>
+
+      <!-- Stay Connected -->
+      <div>
+        <h3 class="text-xs font-bold uppercase tracking-widest text-gray-900 mb-5">Stay Connected</h3>
+        <p class="text-sm text-gray-500 leading-relaxed mb-6">
+          Join our global community of travellers and hosts.
+        </p>
+
+        <!-- Social Icons -->
+        <div class="flex gap-3">
+          <!-- Facebook -->
+          <a href="#"
+             aria-label="Facebook"
+             class="social-btn group w-9 h-9 rounded-full border border-gray-300 flex items-center justify-center hover:border-gray-900 hover:bg-gray-900 transition-all duration-200">
+            <svg class="w-4 h-4 fill-gray-600 group-hover:fill-white transition-colors" viewBox="0 0 24 24">
+              <path d="M22 12a10 10 0 1 0-11.56 9.87v-6.99H7.9V12h2.54v-2.2c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.77l-.44 2.88h-2.33v6.99A10 10 0 0 0 22 12z"/>
+            </svg>
+          </a>
+          <!-- Twitter / X -->
+          <a href="#"
+             aria-label="X (Twitter)"
+             class="social-btn group w-9 h-9 rounded-full border border-gray-300 flex items-center justify-center hover:border-gray-900 hover:bg-gray-900 transition-all duration-200">
+            <svg class="w-4 h-4 fill-gray-600 group-hover:fill-white transition-colors" viewBox="0 0 24 24">
+              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+            </svg>
+          </a>
+          <!-- Instagram -->
+          <a href="#"
+             aria-label="Instagram"
+             class="social-btn group w-9 h-9 rounded-full border border-gray-300 flex items-center justify-center hover:border-gray-900 hover:bg-gray-900 transition-all duration-200">
+            <svg class="w-4 h-4 fill-gray-600 group-hover:fill-white transition-colors" viewBox="0 0 24 24">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.336 3.608 1.311.975.975 1.249 2.242 1.311 3.608.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.062 1.366-.336 2.633-1.311 3.608-.975.975-2.242 1.249-3.608 1.311-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.336-3.608-1.311C2.499 19.483 2.225 18.216 2.163 16.85 2.105 15.584 2.093 15.204 2.093 12s.012-3.584.07-4.85c.062-1.366.336-2.633 1.311-3.608C4.449 2.499 5.716 2.225 7.082 2.163 8.348 2.105 8.728 2.093 12 2.093zm0-2.163C8.741 0 8.333.014 7.053.072 5.197.157 3.355.673 1.955 2.073.555 3.473.039 5.315-.046 7.171-.004 8.333 0 8.741 0 12s.014 3.667.072 4.947c.085 1.856.601 3.698 2.001 5.098 1.4 1.4 3.242 1.916 5.098 2.001C8.451 23.986 8.741 24 12 24s3.549-.014 4.829-.072c1.856-.085 3.698-.601 5.098-2.001 1.4-1.4 1.916-3.242 2.001-5.098.058-1.28.072-1.667.072-4.947s-.014-3.667-.072-4.947c-.085-1.856-.601-3.698-2.001-5.098C20.527.673 18.685.157 16.829.072 15.549.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Bottom Bar ────────────────────────────────────────── -->
+    <div class="pt-8 flex flex-col md:flex-row justify-between items-center gap-5 text-sm text-gray-500">
+
+      <!-- Left: copyright + links -->
+      <div class="flex flex-wrap justify-center md:justify-start items-center gap-x-10 gap-y-3">
+        <span class="text-gray-700 font-medium">© 2026 airbnb, Inc.</span>
+        <span class="text-gray-300 hidden md:inline">·</span>
+        <a href="#" class="footer-link ">Privacy</a>
+        <span class="text-gray-300 hidden md:inline">·</span>
+        <a href="#" class="footer-link ">Terms</a>
+        <span class="text-gray-300 hidden md:inline">·</span>
+        <a href="#" class="footer-link ">Sitemap</a>
+        <span class="text-gray-300 hidden md:inline">·</span>
+        <a href="#" class="footer-link ">Company details</a>
+      </div>
+
+      <!-- Right: Language + Currency -->
+      <div class="flex items-center gap-4 font-medium text-gray-700">
+        <a href="#" class="flex items-center gap-1.5 hover:text-gray-900 transition-colors group">
+          <svg class="w-4 h-4 text-gray-500 group-hover:text-gray-900 transition-colors" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10A15.3 15.3 0 0 1 12 2z"/>
+          </svg>
+          English (US)
+        </a>
+        <span class="text-gray-300">|</span>
+        <a href="#" class="flex items-center gap-1.5 hover:text-gray-900 transition-colors group">
+          <svg class="w-4 h-4 text-gray-500 group-hover:text-gray-900 transition-colors" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24">
+            <path d="M12 1v22M17 5H9.5a3.5 3.5 0 1 0 0 7h5a3.5 3.5 0 1 1 0 7H6"/>
+          </svg>
+          USD
+        </a>
+      </div>
+
+    </div>
+  </div>
+</footer>

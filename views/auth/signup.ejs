@@ -1,0 +1,94 @@
+<%- include('../partials/head') %>
+    <link rel="stylesheet" href="/css/output.css">
+</head>
+
+<body class="bg-gray-50 font-['Inter',_sans-serif] min-h-screen antialiased">
+
+    <!-- Navigation ko top pe rakhne ke liye wrap kiya -->
+    <div class="fixed top-0 w-full z-50 bg-white border-b border-gray-200">
+        <%- include('../partials/navigation') %>
+    </div>
+        
+    
+    <main class="flex items-center justify-center p-4 pt-24 pb-12">
+        <div class="bg-white w-full max-w-[568px] rounded-xl shadow-lg border border-gray-200 overflow-hidden">
+            
+            <!-- Header -->
+            <div class="px-6 py-4 border-b border-gray-200 flex items-center relative">
+                <a href="/login" class="absolute left-6 text-gray-900 hover:bg-gray-100 p-2 rounded-full transition-colors">
+                    <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 fill-none stroke-current stroke-[3px]"><path d="M20 28 8 16 20 4"></path></svg>
+                </a>
+                <h1 class="w-full text-center font-bold text-base">Finish signing up</h1>
+            </div>
+            
+            <div class="p-6">
+                <%- include('../partials/loginerror') %>
+                <form action="/signup" method="POST" class="space-y-4">
+                    
+                    <!-- Stacked Input Group -->
+                    <div class="border border-gray-400 rounded-lg overflow-hidden focus-within:ring-2 focus-within:ring-black">
+                        <div class="px-3 py-2 border-b border-gray-400">
+                            <label class="block text-[10px] uppercase font-bold text-gray-500">First name</label>
+                            <input type="text" name="firstName" placeholder="Enter first name" class="w-full text-sm outline-none bg-transparent placeholder-gray-400 py-1" value="<%= oldInput.firstName ? oldInput.firstName : '' %>" required>
+                        </div>
+                        <div class="px-3 py-2 border-b border-gray-400">
+                            <label class="block text-[10px] uppercase font-bold text-gray-500">Last name</label>
+                            <input type="text" name="lastName" placeholder="Enter last name" class="w-full text-sm outline-none bg-transparent placeholder-gray-400 py-1" value="<%= oldInput.lastName ? oldInput.lastName : '' %>" required>
+                        </div>
+                        <div class="px-3 py-2 border-b border-gray-400">
+                            <label class="block text-[10px] uppercase font-bold text-gray-500">Email</label>
+                            <input type="email" name="email" placeholder="Email" class="w-full text-sm outline-none bg-transparent placeholder-gray-400 py-1" value="<%= oldInput.email ? oldInput.email : '' %>" required>
+                        </div>
+                        <div class="px-3 py-2 border-b border-gray-400">
+                            <label class="block text-[10px] uppercase font-bold text-gray-500">Password</label>
+                            <input type="password" name="password" placeholder="Create password" class="w-full text-sm outline-none bg-transparent placeholder-gray-400 py-1" required>
+                        </div>
+                        <div class="px-3 py-2">
+                            <label class="block text-[10px] uppercase font-bold text-gray-500">Confirm Password</label>
+                            <input type="password" name="confirmPassword" placeholder="Confirm password" class="w-full text-sm outline-none bg-transparent placeholder-gray-400 py-1" required>
+                        </div>
+                    </div>
+
+                    <!-- User Type Selection -->
+                    <div class="grid grid-cols-2 gap-4 pt-2">
+                        <label class="relative flex flex-col p-4 border rounded-xl cursor-pointer transition-all hover:bg-gray-50 border-gray-300 has-[:checked]:border-black has-[:checked]:ring-1 has-[:checked]:ring-black">
+                            <div class="flex justify-between items-center mb-1">
+                                <span class="font-semibold text-sm">Guest</span>
+                                <input type="radio" name="userType" value="guest" class="w-4 h-4 accent-rose-500" checked>
+                            </div>
+                            <span class="text-[11px] text-gray-500 leading-tight">Explore and book homes.</span>
+                        </label>
+
+                        <label class="relative flex flex-col p-4 border rounded-xl cursor-pointer transition-all hover:bg-gray-50 border-gray-300 has-[:checked]:border-black has-[:checked]:ring-1 has-[:checked]:ring-black">
+                            <div class="flex justify-between items-center mb-1">
+                                <span class="font-semibold text-sm">Host</span>
+                                <input type="radio" name="userType" value="host" class="w-4 h-4 accent-rose-500">
+                            </div>
+                            <span class="text-[11px] text-gray-500 leading-tight">List and manage properties.</span>
+                        </label>
+                    </div>
+
+                    <p class="text-[11px] text-gray-500 pt-2">
+                        By selecting <span class="font-semibold text-black">Agree and continue</span>, I agree to the <a href="#" class="underline font-semibold">Terms of Service</a> and <a href="#" class="underline font-semibold">Privacy Policy</a>.
+                    </p>
+
+                    <button type="submit" class="w-full bg-[#FF385C] hover:bg-[#E31C5F] text-white font-semibold py-3 rounded-lg transition-all text-base active:scale-95">
+                        Agree and continue
+                    </button>
+                </form>
+
+                <div class="relative my-8">
+                    <div class="absolute inset-0 flex items-center"><span class="w-full border-t border-gray-200"></span></div>
+                    <span class="relative bg-white px-4 left-1/2 -translate-x-1/2 text-xs text-gray-400">or</span>
+                </div>
+
+                <p class="text-center text-sm text-gray-600">
+                    Already have an account? 
+                    <a href="/login" class="font-semibold underline hover:text-black transition-colors">Log in</a>
+                </p>
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>

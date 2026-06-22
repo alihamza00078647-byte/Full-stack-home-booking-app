@@ -1,0 +1,86 @@
+<%- include('../partials/head') %>
+<link rel="stylesheet" href="/css/output.css">
+</head>
+
+<body class="bg-[#F7F7F7] min-h-screen font-sans antialiased">
+
+    <header class="bg-white border-b border-gray-200 px-6 py-4 flex justify-between items-center sticky top-0 z-50 shadow-sm">
+        <div class="flex items-center gap-2">
+            <div class="bg-[#FF385C] p-1.5 rounded-lg">
+                <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 fill-white"><path d="M16 1c2.008 0 3.463.963 4.751 3.269l.533 1.025c1.954 3.83 6.114 12.54 7.1 14.836l.145.353c.667 1.591.91 2.472.96 3.396l.01.415v.2c0 1.503-.332 2.852-.94 4.042l-.21.39c-.83 1.44-2.14 2.4-3.76 2.812l-.44.095c-.88.163-1.85.213-2.88.153l-.44-.035c-1.284-.114-2.221-.483-3.08-1.205l-.31-.282c-.644-.583-1.127-1.284-1.47-2.102l-.12-.307c-.122-.33-.213-.71-.283-1.144l-.03-.215c-.052-.43-.075-.892-.075-1.405l.001-.205c.012-.663.136-1.235.385-1.742l.104-.197c.435-.776 1.07-1.41 1.83-1.844l.21-.11c.782-.4 1.62-.573 2.503-.513l.416.035c.84.09 1.57.382 2.18.88l.222.193c.31.285.54.594.704.938l.066.155c.16.41.22.84.19 1.29l-.008.21c-.024.364-.1.69-.222 1.006l-.082.193c-.15.31-.35.58-.61.82l-.22.19c-.27.22-.58.38-.93.47l-.17.037c-.36.06-.73.07-1.11.03l-.22-.03c-.45-.07-.84-.23-1.19-.48l-.16-.12c-.25-.21-.44-.45-.58-.72l-.06-.15c-.11-.3-.15-.61-.13-.93l.007-.21c.023-.31.1-.59.23-.86l.08-.17c.15-.26.34-.48.57-.66l.19-.14c.24-.16.51-.27.81-.32l.16-.02c.3-.03.61-.02.91.03l.2.05c.34.1.63.26.88.48l.15.14c.21.22.37.47.48.74l.05.15c.09.31.11.63.07.95l-.01.21c-.04.34-.14.65-.3.94l-.1.17c-.19.29-.44.52-.75.69l-.19.1c-.32.14-.66.21-1.01.22l-.21-.001c-.49-.02-.94-.17-1.35-.44l-.18-.13c-.32-.26-.58-.58-.78-.96l-.08-.18c-.14-.36-.21-.74-.21-1.14l.001-.21c.03-.53.16-1.02.4-1.46l.1-.17c.3-.46.7-.84 1.18-1.11l.2-.1c.5-.23 1.04-.33 1.62-.29l.21.01c.7.07 1.33.3 1.88.69l.19.15c.44.38.78.85 1.02 1.41l.07.19c.16.48.23.99.21 1.53l-.001.21c-.02.73-.2 1.4-.53 2.01l-.14.24c-.45.71-1.05 1.25-1.81 1.61l-.22.1c-.72.3-1.49.42-2.31.36l-.21-.02c-.85-.08-1.63-.35-2.34-.81l-.21-.15c-.63-.5-1.12-1.14-1.46-1.92l-.09-.22c-.21-.57-.31-1.19-.31-1.86l.001-.21c.04-.96.26-1.83.65-2.6l.13-.24c.54-.92 1.27-1.63 2.19-2.1l.24-.12c.9-.41 1.88-.58 2.94-.5l.24.02c1.08.1 2.06.44 2.94 1.03l.23.16c.86.68 1.54 1.55 2.02 2.6l.09.22c.31.78.47 1.63.47 2.54l-.001.24c-.04 1.14-.31 2.2-.81 3.16l-.16.29c-.66 1.12-1.55 2-2.67 2.62l-.27.14c-1.1.53-2.31.75-3.63.65l-.27-.03c-1.37-.13-2.6-.57-3.7-1.32l-.26-.19c-1.07-.86-1.92-1.96-2.52-3.3l-.12-.29c-.4-1-.6-2.07-.6-3.21l.001-.27c.05-1.42.38-2.73.99-3.92l.19-.36c.8-1.41 1.89-2.52 3.25-3.32l.27-.15c1.36-.71 2.87-1.03 4.54-.95l.27.02c1.72.13 3.28.66 4.67 1.58l.26.19c1.33 1.05 2.39 2.41 3.17 4.07l.14.31c.49 1.15.74 2.4.74 3.73l-.001.31c-.06 1.6-.46 3.09-1.2 4.45l-.23.41c-.96 1.62-2.28 2.9-3.96 3.82l-.32.17c-1.63.82-3.44 1.21-5.42 1.15l-.32-.02c-2.03-.13-3.88-.74-5.55-1.82l-.31-.22c-1.62-1.21-2.92-2.77-3.9-4.68l-.16-.33c-.61-1.32-.91-2.75-.91-4.29l.001-.33c.08-1.84.58-3.56 1.49-5.15l.26-.45c1.11-1.87 2.63-3.34 4.57-4.41l.36-.19c1.88-.95 3.96-1.4 6.25-1.33l.36.02c2.4.13 4.59.88 6.56 2.24l.35.26c1.92 1.52 3.46 3.49 4.6 5.88l.21.46c.7 1.63 1.05 3.41 1.05 5.33l-.002.4c-.1 2.27-.72 4.38-1.87 6.32l-.34.56c-1.45 2.33-3.41 4.18-5.88 5.53l-.47.25c-2.38 1.2-5.01 1.77-7.89 1.7l-.48-.02c-2.96-.13-5.69-1.07-8.19-2.82l-.46-.34c-2.4-1.9-4.32-4.36-5.75-7.37l-.27-.6c-.86-2.03-1.3-4.26-1.3-6.68l.002-.51c.14-2.87 1-5.52 2.58-7.96l.42-.64C3.89 4.41 6.36 2.55 9.4 1.42l.5-.18C11.83.47 13.88.08 16 1z"></path></svg>
+            </div>
+            <span class="text-[#FF385C] font-bold text-xl tracking-tighter">azeem host</span>
+        </div>
+        <div class="flex items-center gap-4">
+            <a href="/host/addhome" class="text-sm font-semibold border border-gray-300 px-6 py-2.5 rounded-full hover:shadow-md hover:bg-gray-50 transition-all">Create new listing</a>
+            <div class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center text-white text-sm font-bold shadow-inner">A</div>
+        </div>
+    </header>
+    
+    <main class="max-w-5xl mx-auto py-12 px-6">
+        <div class="flex items-center justify-between mb-10">
+            <h1 class="text-3xl font-bold text-gray-900 tracking-tight">Your Hosted Collections</h1>
+            <span class="text-gray-500 text-sm font-medium"><%= hostHomes.length %> listings</span>
+        </div>
+
+        <div class="space-y-8">
+            <% hostHomes.forEach(home => { %>
+                <div class="bg-white rounded-3xl shadow-sm border border-gray-200 overflow-hidden flex flex-col md:flex-row transition-all hover:shadow-2xl hover:-translate-y-1 group">
+                    
+                    <div class="w-full md:w-[380px] h-72 md:h-auto relative overflow-hidden">
+                        <img src="<%=home.mainImage%>" 
+                             alt="<%=home.houseName%>" 
+                             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div class="absolute top-4 left-4 bg-white/95 backdrop-blur-md px-4 py-1.5 rounded-full text-[11px] font-bold uppercase tracking-widest shadow-sm text-gray-800 border border-gray-100">
+                            Luxury Suite
+                        </div>
+                    </div>
+                    
+                    <div class="flex-1 p-8 flex flex-col justify-between bg-white">
+                        <div>
+                            <div class="flex justify-between items-start">
+                                <div class="space-y-1">
+                                    <p class="text-[11px] text-[#FF385C] font-bold uppercase tracking-[0.2em]">Entire Home in <%= home.location %></p>
+                                    <h2 class="text-2xl md:text-3xl font-bold text-gray-900 leading-tight tracking-tight"><%= home.houseName %></h2>
+                                </div>
+                                <div class="flex items-center gap-1.5 bg-gray-900 text-white px-3 py-1 rounded-full shadow-lg">
+                                    <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 fill-white"><path d="M15.094 1.579l-4.124 8.885-9.86 1.27a1 1 0 0 0-.551 1.748l7.233 6.812-1.834 9.77a1 1 0 0 0 1.473 1.073l8.57-4.737 8.57 4.737a1 1 0 0 0 1.473-1.073l-1.834-9.77 7.233-6.812a1 1 0 0 0-.551-1.748l-9.86-1.27-4.124-8.885a1 1 0 0 0-1.812 0z"></path></svg>
+                                    <span class="text-xs font-bold"><%= home.rating %></span>
+                                </div>
+                            </div>
+                            
+                            <p class="mt-5 text-gray-500 text-[15px] leading-relaxed line-clamp-2 font-light">
+                                <%= home.description %>
+                            </p>
+                            
+                            <div class="mt-6 flex items-center gap-2 text-gray-400">
+                                <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 fill-none stroke-current stroke-[2px]"><path d="M16 31s12-12.033 12-20c0-6.627-5.373-12-12-12S4 4.373 4 11c0 7.967 12 20 12 20z"></path><circle cx="16" cy="11" r="4"></circle></svg>
+                                <span class="text-sm font-medium tracking-wide"><%= home.location %>, Pakistan</span>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8 pt-6 border-t border-gray-100 flex items-center justify-between">
+                            <div class="flex flex-col">
+                                <span class="text-xs text-gray-400 uppercase font-bold tracking-widest">Starting from</span>
+                                <div class="flex items-baseline gap-1">
+                                    <span class="text-2xl font-black text-gray-900">PKR <%= home.price %></span>
+                                    <span class="text-gray-400 text-sm">/ night</span>
+                                </div>
+                            </div>
+                            
+                            <div class="flex gap-3">
+                                <a href="/host/hosthomepage/edit/<%=home._id%>?editing=true" class="px-6 py-2.5 text-sm font-bold border-2 border-gray-900 rounded-xl hover:bg-gray-900 hover:text-white transition-all duration-300">Edit</a>
+                                <a href="/host/hosthomepage/remove/<%=home._id%>" class="px-6 py-2.5 text-sm font-bold bg-[#FF385C] text-white rounded-xl hover:bg-[#E31C5F] hover:shadow-xl transition-all duration-300">Delete</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <% }); %>
+        </div>
+    </main>
+
+    <footer class="py-12 text-center text-gray-400 text-xs uppercase tracking-[0.3em]">
+        &copy; 2026 Airbnb &bull; All Rights Reserved
+    </footer>
+</body>
+</html>

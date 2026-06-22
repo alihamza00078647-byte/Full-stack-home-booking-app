@@ -1,0 +1,87 @@
+<%- include('../partials/head') %>
+<link rel="stylesheet" href="/css/output.css">
+
+<body class="bg-gray-50 font-sans antialiased">
+
+    <%- include('../partials/navigation') %>
+    
+    <div class="min-h-screen flex items-center justify-center py-10 px-4 sm:px-6 lg:px-8">
+        
+        <div class="max-w-xl w-full bg-white rounded-2xl shadow-xl border border-gray-200 overflow-hidden">
+            
+            <h1 class="text-xl text-red-400 text-center mt-1"><%= editing ? 'Edit HOME' : 'Add New HOME' %> </h1>
+
+            <div class="px-8 py-2 border-b border-gray-100 bg-white sticky top-0 z-10">
+                <h1 class="text-2xl font-bold text-gray-900 tracking-tight font-serif italic text-center">Add Your Collection</h1>
+                <p class="text-sm text-gray-500 mt-1 text-center">Fill in the details to host your property on airbnb.</p>
+            </div>
+
+            <form action="/host/<%= editing ? 'edit-homes' : 'Addhome' %>" method="post" class="p-8 space-y-6" enctype="multipart/form-data">
+
+                <input type="hidden" name="_id" value="<%= editing ? home._id : '' %>">
+
+                
+                <div class="border border-gray-300 rounded-xl overflow-hidden shadow-sm focus-within:ring-2 focus-within:ring-black focus-within:border-transparent transition-all">
+                    
+                    <div class="px-4 py-3 border-b border-gray-200 group">
+                        <label class="block text-[10px] font-bold uppercase text-gray-500 tracking-wider">House Name</label>
+                        <input type="text" name="houseName" placeholder="e.g. Royal Azure Villa" value="<%= editing ? home.houseName : '' %>" 
+                               class="w-full bg-transparent outline-none text-gray-900 placeholder-gray-300 pt-1 text-sm">
+                    </div>
+
+                    <div class="px-4 py-3 border-b border-gray-200">
+                        <label class="block text-[10px] font-bold uppercase text-gray-500 tracking-wider">Location</label>
+                        <input type="text" name="location" placeholder="e.g. Gulberg III, Lahore" value="<%= editing ? home.location : '' %>"
+                               class="w-full bg-transparent outline-none text-gray-900 placeholder-gray-300 pt-1 text-sm">
+                    </div>
+
+                    <div class="grid grid-cols-2">
+                        <div class="px-4 py-3 border-r border-gray-200">
+                            <label class="block text-[10px] font-bold uppercase text-gray-500 tracking-wider">Price (PKR)</label>
+                            <input type="number" name="price" placeholder="25,000" value="<%= editing ? home.price : '' %>"
+                                   class="w-full bg-transparent outline-none text-gray-900 placeholder-gray-300 pt-1 text-sm">
+                        </div>
+                        <div class="px-4 py-3">
+                            <label class="block text-[10px] font-bold uppercase text-gray-500 tracking-wider">Rating</label>
+                            <input type="text" name="rating" placeholder="4.5" value="<%= editing ? home.rating : '' %>"
+                                   class="w-full bg-transparent outline-none text-gray-900 placeholder-gray-300 pt-1 text-sm">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-2">
+                    <label class="block text-sm font-semibold text-gray-700">Upload Main Photo</label>
+                    <input type="file" name="mainImage" placeholder="https://images.unsplash.com/..."
+                    value="<%= editing ? home.photoUrl : '' %>" 
+                    accept="image/jpeg', 'image/jpg', 'image/png', 'image/webp"
+                    class="w-full px-4 py-3 rounded-xl cursor-pointer border border-gray-300 outline-none focus:ring-2 focus:ring-black focus:border-transparent transition-all text-sm">
+                </div>
+
+                <div class="space-y-2">
+                    <label class="block text-sm font-semibold text-gray-700">Upload Cover Photos</label>
+                    <input type="file" name="photoUrl" placeholder="https://images.unsplash.com/..."
+                    value="<%= editing ? home.photoUrl : '' %>" 
+                    multiple 
+                    accept="image/jpeg', 'image/jpg', 'image/png', 'image/webp"
+                    class="w-full px-4 py-3 rounded-xl cursor-pointer border border-gray-300 outline-none focus:ring-2 focus:ring-black focus:border-transparent transition-all text-sm">
+                </div>
+
+                <div class="space-y-2">
+                    <label class="block text-sm font-semibold text-gray-700">Description</label>
+                    <textarea name="description" rows="4" placeholder="Describe the vibe of your home..."
+                              class="w-full px-4 py-3 rounded-xl border border-gray-300 outline-none focus:ring-2 focus:ring-black focus:border-transparent transition-all text-sm resize-none"><%= editing ? home.description : '' %></textarea>
+                </div>
+
+                <div class="pt-4">
+                    <button type="submit" class="w-full bg-[#FF385C] hover:bg-[#E31C5F] text-white font-bold py-4 rounded-xl shadow-lg transition-all active:scale-[0.98] tracking-wide">
+                        <%= editing ? 'Edit Home details' : 'Add New Home' %>
+                    </button>
+                    <p class="text-center text-[11px] text-gray-400 mt-4 uppercase tracking-[0.2em]">Airbnb &bull; Est. 2026</p>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>

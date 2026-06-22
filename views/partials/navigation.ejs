@@ -1,0 +1,161 @@
+<%- include('../partials/head') %>
+
+<style>
+  body { font-family: 'DM Sans', sans-serif; }
+  .brand { font-family: 'DM Serif Display', serif; }
+
+  .nav-link { position: relative; }
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1.5px;
+    background: #f97316;
+    transition: width 0.25s ease;
+  }
+  .nav-link:hover::after { width: 100%; }
+
+  .pill-btn { transition: transform 0.15s ease, box-shadow 0.15s ease; }
+  .pill-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(249,115,22,0.35);
+  }
+
+  /* Mobile menu transition */
+  #mobile-menu {
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+  }
+  #mobile-menu.open {
+    max-height: 600px; /* Increased to accommodate all links */
+    opacity: 1;
+  }
+</style>
+</head>
+<body class="bg-stone-50 min-h-screen">
+
+<nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-stone-200 shadow-sm">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="flex items-center justify-between h-16">
+
+      <a href="/" class="brand text-2xl text-stone-900 tracking-tight flex items-center gap-2 shrink-0">
+        <span class="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-orange-500 text-white text-lg">
+          <svg class="w-5 h-5" fill="white" viewBox="0 0 640 640"><path d="M320.5 437.1C295.3 405.4 280.4 377.7 275.5 353.9C253 265.9 388.1 265.9 365.6 353.9C360.2 378.1 345.3 405.9 320.6 437.1L320.5 437.1zM458.7 510.3C416.6 528.6 375 499.4 339.4 459.8C443.3 329.7 385.5 259.8 320.6 259.8C265.7 259.8 235.4 306.3 247.3 360.3C254.2 389.5 272.5 422.7 301.7 459.8C269.2 495.8 241.2 512.5 216.5 514.7C166.5 522.1 127.4 473.6 145.2 423.6C160.3 384.4 256.9 192.4 261.1 182C276.9 151.9 286.7 124.6 320.5 124.6C352.8 124.6 363.9 150.5 380.9 184.5C416.9 255.1 470.3 362 495.7 423.6C508.9 456.7 494.3 494.9 458.7 510.2zM505.7 374.2C376.8 99.9 369.7 96 320.6 96C275.1 96 255.7 127.7 235.9 168.8C129.7 381.1 119.5 411.2 118.6 413.8C93.4 483.1 145.3 544 208.2 544C229.9 544 268.8 537.9 320.6 481.6C379.3 545.4 421.9 544 433 544C495.9 544.1 547.9 483.1 522.6 413.8C522.6 409.9 505.8 374.9 505.8 374.2L505.8 374.2z"/></svg>
+        </span>
+        airbnb
+      </a>
+
+      <div class="hidden md:flex items-center gap-7 text-sm font-medium text-stone-600">
+        <a href="/" class="nav-link hover:text-stone-900 transition-colors">Home</a>
+        
+        <% if (isLoggedIn && user.userType === 'guest') { %>
+          <a href="/favourites" class="nav-link hover:text-stone-900 transition-colors flex items-center gap-1">
+            <svg class="w-3.5 h-3.5 text-orange-400" fill="currentColor" viewBox="0 0 20 20"><path d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"/></svg>
+            Favourites
+          </a>
+          <a href="/bookings" class="nav-link hover:text-stone-900 transition-colors">Bookings</a>
+        <% } %>
+
+        <% if (isLoggedIn && user.userType === 'host') { %>
+          <div class="relative group">
+            <button class="nav-link hover:text-stone-900 transition-colors flex items-center gap-1">
+              Host Panel
+              <svg class="w-3.5 h-3.5 text-stone-400 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-48 bg-white rounded-xl shadow-xl border border-stone-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 translate-y-1 group-hover:translate-y-0 overflow-hidden">
+              <div class="py-1.5">
+                <a href="/host/addhome" class="flex items-center gap-3 px-4 py-2.5 text-sm text-stone-600 hover:bg-orange-50 hover:text-orange-600 transition-colors">
+                  <span class="text-base">＋</span> Add a Home
+                </a>
+                <a href="/host/hosthomepage" class="flex items-center gap-3 px-4 py-2.5 text-sm text-stone-600 hover:bg-orange-50 hover:text-orange-600 transition-colors">
+                  <span class="text-base">🏡</span> Host Dashboard
+                </a>
+              </div>
+            </div>
+          </div>
+        <% } %>
+      </div>
+
+      <div class="hidden md:flex items-center gap-3">
+        <% if (isLoggedIn) { %>
+          <a href="/logout" class="text-sm font-medium text-stone-600 hover:text-stone-900 transition-colors px-4 py-2 rounded-full hover:bg-stone-100">
+            Logout
+          </a>
+        <% } else { %>
+          <a href="/login" class="text-sm font-medium text-stone-600 hover:text-stone-900 transition-colors px-4 py-2 rounded-full hover:bg-stone-100">
+            Login
+          </a>
+          <a href="/signup" class="pill-btn text-sm font-semibold text-white bg-orange-500 hover:bg-orange-600 transition-colors px-5 py-2 rounded-full shadow-md shadow-orange-200">
+            Sign Up
+          </a>
+        <% } %>
+      </div>
+
+      <button id="hamburger" onclick="toggleMenu()" class="md:hidden inline-flex flex-col justify-center items-center w-9 h-9 rounded-lg hover:bg-stone-100 transition-colors gap-1.5 p-2">
+        <span class="block w-5 h-0.5 bg-stone-700 rounded transition-all" id="line1"></span>
+        <span class="block w-5 h-0.5 bg-stone-700 rounded transition-all" id="line2"></span>
+        <span class="block w-5 h-0.5 bg-stone-700 rounded transition-all" id="line3"></span>
+      </button>
+    </div>
+  </div>
+
+  <div id="mobile-menu">
+    <div class="max-w-7xl mx-auto px-6 pb-5 pt-2 flex flex-col gap-1 border-t border-stone-100 bg-white">
+      <a href="/" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-stone-700 hover:bg-orange-50 hover:text-orange-600 transition-colors">
+        🏠 Home
+      </a>
+      
+      <% if (isLoggedIn) { %>
+        <% if (user.userType === 'guest') { %>
+          <a href="/favourites" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-stone-700 hover:bg-orange-50 hover:text-orange-600 transition-colors">
+            ❤️ Favourites
+          </a>
+          <a href="/bookings" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-stone-700 hover:bg-orange-50 hover:text-orange-600 transition-colors">
+            📅 Bookings
+          </a>
+        <% } else if (user.userType === 'host') { %>
+          <a href="/host/addhome" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-stone-700 hover:bg-orange-50 hover:text-orange-600 transition-colors">
+            ＋ Add a Home
+          </a>
+          <a href="/host/hosthomepage" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-stone-700 hover:bg-orange-50 hover:text-orange-600 transition-colors">
+            🏡 Host Dashboard
+          </a>
+        <% } %>
+        <div class="h-px bg-stone-100 my-1"></div>
+        <a href="/logout" class="text-center text-sm font-medium text-stone-700 border border-stone-200 py-2.5 rounded-full">Logout</a>
+      <% } else { %>
+        <div class="h-px bg-stone-100 my-1"></div>
+        <div class="flex gap-3 pt-1">
+          <a href="/login" class="flex-1 text-center text-sm font-medium text-stone-700 border border-stone-200 py-2.5 rounded-full">Login</a>
+          <a href="/signup" class="flex-1 text-center text-sm font-semibold text-white bg-orange-500 py-2.5 rounded-full">Sign Up</a>
+        </div>
+      <% } %>
+    </div>
+  </div>
+</nav>
+
+<script>
+  let open = false;
+  function toggleMenu() {
+    open = !open;
+    const menu = document.getElementById('mobile-menu');
+    const l1 = document.getElementById('line1');
+    const l2 = document.getElementById('line2');
+    const l3 = document.getElementById('line3');
+    
+    menu.classList.toggle('open', open);
+    if (open) {
+      l1.style.transform = 'translateY(8px) rotate(45deg)';
+      l3.style.transform = 'translateY(-8px) rotate(-45deg)';
+      l2.style.opacity = '0';
+    } else {
+      l1.style.transform = '';
+      l3.style.transform = '';
+      l2.style.opacity = '1';
+    }
+  }
+</script>

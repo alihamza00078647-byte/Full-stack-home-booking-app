@@ -1,0 +1,30 @@
+<%- include('../partials/head') %>
+<link rel="stylesheet" href="/css/output.css">
+
+    <style>
+        .active{
+            color:  #ef4444;
+            stroke:  #ef4444;
+        }
+    </style>
+
+</head>
+<body class="bg-white text-gray-900 font-sans">
+    <%- include('../partials/navigation') %>
+    <%- include('../partials/searchbar') %>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <h1 class="text-3xl font-bold tracking-tight mb-8">Explore homes</h1>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <% homes.forEach(home => { %>
+                <%- include('../partials/houseCard', { home : home }) %>
+            <% }); %>
+        </div>
+    </main>
+
+    <%- include('../partials/footer') %>
+
+    
+</body>
+</html>

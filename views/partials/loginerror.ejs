@@ -1,0 +1,17 @@
+<% if (errors && errors.length > 0) { %>
+          <div class="mb-6 p-4 border border-rose-200 bg-rose-50 rounded-xl flex items-start gap-3 animate-pulse-once">
+            <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 fill-rose-600 shrink-0 mt-0.5">
+              <path d="M16 2a14 14 0 1 0 14 14A14 14 0 0 0 16 2zm0 26a12 12 0 1 1 12-12 12 12 0 0 1-12 12zm.8-19h-1.6v9h1.6zm0 11h-1.6v2h1.6z"></path>
+            </svg>
+            <div>
+              <h3 class="text-sm font-bold text-rose-900 mb-1">Check the following:</h3>
+              <ul class="list-none space-y-1">
+                <% errors.forEach(err => { %>
+                  <li class="text-xs text-rose-800 font-medium">
+                    <%= err %>
+                  </li>
+                <% }) %>
+              </ul>
+            </div>
+          </div>
+        <% } %>

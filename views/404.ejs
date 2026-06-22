@@ -1,0 +1,54 @@
+<%- include('./partials/head') %>
+<link rel="stylesheet" href="/css/output.css">
+
+    <!-- Serif font for that premium look -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+</head>
+<body class="bg-[#F9F8F6] text-[#1A1A1A] antialiased">
+
+    <div class="relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-6">
+        
+        <!-- Background 404 Text (Watermark style) -->
+        <h1 class="pointer-events-none absolute left-1/2 top-1/2 -z-10 -translate-x-1/2 -translate-y-1/2 select-none font-serif text-[15rem] leading-none text-[#C5A059] opacity-10 md:text-[25rem]">
+            404
+        </h1>
+
+        <!-- Header / Logo -->
+        <header class="mb-16">
+            <h2 class="border-b border-gray-300 pb-2 text-xl font-light uppercase tracking-[0.4em] md:text-2xl">
+                airbnb
+            </h2>
+        </header>
+
+        <!-- Main Content -->
+        <main class="text-center">
+            <h2 class="mb-6 font-['Playfair_Display',_serif] text-4xl md:text-6xl italic leading-tight">
+                Lost in the Threads
+            </h2>
+            
+            <p class="mx-auto mb-12 max-w-sm text-sm font-light leading-relaxed tracking-wide text-gray-500 md:text-base">
+                The collection you are searching for is currently unavailable. Let's get you back to the latest trends.
+            </p>
+
+            <!-- Navigation Buttons -->
+            <div class="flex flex-col items-center justify-center gap-5 sm:flex-row">
+                <a href="/" class="group relative w-full overflow-hidden bg-[#1A1A1A] px-10 py-4 text-xs font-medium uppercase tracking-[0.2em] text-white transition-all hover:bg-[#333] sm:w-auto">
+                    Return Home
+                </a>
+                
+                <a href="/shop" class="w-full border border-[#1A1A1A] px-10 py-4 text-xs font-medium uppercase tracking-[0.2em] text-[#1A1A1A] transition-all hover:bg-[#1A1A1A] hover:text-white sm:w-auto">
+                    Explore Shop
+                </a>
+            </div>
+        </main>
+
+        <!-- Footer Decoration -->
+        <footer class="mt-24 flex items-center gap-4 text-[10px] uppercase tracking-[0.3em] text-gray-400">
+            <span class="h-px w-8 bg-gray-300"></span>
+            Est. 2026
+            <span class="h-px w-8 bg-gray-300"></span>
+        </footer>
+
+    </div>
+
+</body>

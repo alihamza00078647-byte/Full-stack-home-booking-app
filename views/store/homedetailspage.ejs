@@ -1,0 +1,181 @@
+<%- include('../partials/head') %>
+<link rel="stylesheet" href="/css/output.css">
+</head>
+<body class="bg-white text-gray-900 font-sans antialiased">
+    <%- include('../partials/navigation') %>
+
+    <main class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Header Section -->
+        <header class="mb-6">
+            <h1 class="text-3xl font-semibold text-gray-800"><%= home.houseName %></h1>
+            <div class="flex items-center justify-between mt-2 text-sm text-gray-600 underline font-medium">
+                <div class="flex items-center space-x-4">
+                    <span>★ <%= home.rating %> · 12 reviews</span>
+                    <span><%= home.location %></span>
+                </div>
+                <div class="flex space-x-4">
+                    <button class="hover:bg-gray-100 p-2 rounded-lg flex items-center">Share</button>
+                    <button class="hover:bg-gray-100 p-2 rounded-lg flex items-center">Save</button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Image Gallery (Hero Image) -->
+        <div class="relative mb-8">
+            <div id="imageSlider" class="flex md:grid md:grid-cols-2 gap-2 overflow-x-auto snap-x snap-mandatory scrollbar-hide rounded-2xl shadow-sm">
+                
+                <div class="min-w-full md:min-w-0 snap-center aspect-square md:aspect-auto overflow-hidden">
+                    <img src="<%= home.mainImage %>" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" alt="Main View">
+                </div>
+                
+                <div class="min-w-full md:min-w-0 snap-center aspect-square md:aspect-auto overflow-hidden">
+                    <img src="<%= home.imgOne %>" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" alt="Bedroom">
+                </div>
+
+                <div class="min-w-full md:min-w-0 snap-center aspect-square md:aspect-auto overflow-hidden">
+                    <img src="<%= home.imgTwo %>" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" alt="Kitchen">
+                </div>
+
+                <div class="min-w-full md:min-w-0 snap-center aspect-square md:aspect-auto overflow-hidden">
+                    <img src="<%= home.imgThree %>" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" alt="Bathroom">
+                </div>
+
+                <div class="min-w-full md:min-w-0 snap-center aspect-square md:aspect-auto overflow-hidden">
+                    <img src="<%= home.imgFour  %>" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" alt="Bathroom">
+                </div>
+            </div>
+
+            <div id="dotsContainer" class="flex md:hidden justify-center gap-2 absolute bottom-4 left-0 right-0">
+                <div class="dot w-1.5 h-1.5 rounded-full bg-white shadow-md transition-all"></div>
+                <div class="dot w-1.5 h-1.5 rounded-full bg-white/50 shadow-md transition-all"></div>
+                <div class="dot w-1.5 h-1.5 rounded-full bg-white/50 shadow-md transition-all"></div>
+                <div class="dot w-1.5 h-1.5 rounded-full bg-white/50 shadow-md transition-all"></div>
+            </div>
+        </div>
+
+        <!-- Content Grid: Info on left, Booking on right -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+            
+            <!-- Left Column: Details -->
+            <div class="md:col-span-2">
+                <div class="border-b pb-6 mb-6">
+                    <h2 class="text-2xl font-semibold">Entire home hosted by a Pro</h2>
+                    <p class="text-gray-500">4 guests · 2 bedrooms · 2 beds · 1 bath</p>
+                </div>
+
+                <div class="space-y-6">
+                    <div class="flex space-x-4">
+                        <div class="text-2xl mt-1">🏠</div>
+                        <div>
+                            <h3 class="font-semibold text-lg">Self check-in</h3>
+                            <p class="text-gray-500">Check yourself in with the keypad.</p>
+                        </div>
+                    </div>
+                    <div class="flex space-x-4">
+                        <div class="text-2xl mt-1">📍</div>
+                        <div>
+                            <h3 class="font-semibold text-lg">Great location</h3>
+                            <p class="text-gray-500">95% of recent guests gave the location a 5-star rating.</p>
+                        </div>
+                    </div>
+                    <div class="flex space-x-4 border-b pb-8">
+                        <div class="text-2xl mt-1">📅</div>
+                        <div>
+                            <h3 class="font-semibold text-lg">Free cancellation for 48 hours</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="py-8">
+                    <p class="text-gray-700 leading-relaxed text-lg">
+                        <%= home.description %>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Right Column: Booking Card (Sticky) -->
+            <div class="relative">
+                <div class="sticky top-24 p-6 border rounded-2xl shadow-xl bg-white">
+                    <div class="flex justify-between items-center mb-4">
+                        <div>
+                            <span class="text-2xl font-bold">$<%= home.price %></span>
+                            <span class="text-gray-500 text-base">night</span>
+                        </div>
+                        <div class="text-sm font-semibold">
+                            ★ <%= home.rating %>
+                        </div>
+                    </div>
+
+                    <!-- Mock Booking Inputs -->
+                    <div class="border rounded-lg overflow-hidden mb-4">
+                        <div class="grid grid-cols-2 border-b">
+                            <div class="p-2 border-r text-[10px] font-bold uppercase">Check-in</div>
+                            <div class="p-2 text-[10px] font-bold uppercase">Checkout</div>
+                        </div>
+                        <div class="p-2 text-[10px] font-bold uppercase">Guests</div>
+                    </div>
+                    <form action="/reserve" method="post">
+                        <input type="hidden" name="bookingHomeId" value="<%= home._id%>">
+                        <button type="submit" class="w-full py-3 cursor-pointer bg-rose-600 hover:bg-rose-700 text-white font-semibold rounded-lg transition-colors">
+                            Reserve
+                        </button>
+                    </form>
+
+                    <p class="text-center text-sm text-gray-500 mt-4">You won't be charged yet</p>
+                    
+                    <div class="mt-4 space-y-3 border-t pt-4">
+                        <div class="flex justify-between text-gray-600">
+                            <span class="underline">$<%= home.price %> x 5 nights</span>
+                            <span>$<%= home.price * 5 %></span>
+                        </div>
+                        <div class="flex justify-between font-bold text-lg pt-3 border-t">
+                            <span>Total before taxes</span>
+                            <span>$<%= home.price * 5 %></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <%- include('../partials/comment') %>
+    
+    <h1>Similar Results you may like</h1>
+    
+
+
+    <%- include('../partials/footer') %>
+
+    <script>
+
+        const slider = document.getElementById('imageSlider');
+        const dots = document.querySelectorAll('.dot');
+
+        // Scroll listener for mobile dots logic
+        slider.addEventListener('scroll', () => {
+            // Calculate which image is currently in view
+            const scrollIndex = Math.round(slider.scrollLeft / slider.offsetWidth);
+            
+            dots.forEach((dot, i) => {
+                if (i === scrollIndex) {
+                    dot.classList.remove('bg-white/50');
+                    dot.classList.add('bg-white', 'scale-125'); // Active dot gets bigger and brighter
+                } else {
+                    dot.classList.add('bg-white/50');
+                    dot.classList.remove('bg-white', 'scale-125');
+                }
+            });
+        });
+
+        // Click on dots to scroll (optional but good for UX)
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                slider.scrollTo({
+                    left: slider.offsetWidth * index,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
